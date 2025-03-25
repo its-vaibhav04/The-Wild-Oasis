@@ -35,7 +35,7 @@ function SignupForm() {
           {...register("email", {
             reguired: "This field is Required!",
             pattern: {
-              value: /S+@S+.S+/,
+              value: /\S+@\S+\.\S+/,
               message: "Please provide a valid email address!",
             },
           })}
@@ -74,7 +74,12 @@ function SignupForm() {
       </FormRow>
 
       <FormRow>
-        <Button variation="secondary" type="reset" disabled={isLoading}>
+        <Button
+          variation="secondary"
+          type="reset"
+          disabled={isLoading}
+          onClick={reset}
+        >
           Cancel
         </Button>
         <Button disabled={isLoading}>Create new user</Button>
