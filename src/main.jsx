@@ -12,6 +12,18 @@ createRoot(document.getElementById("root")).render(
         FallbackComponent={ErrorFallback}
         onReset={() => window.location.replace("/")}
       >
+        <div>
+          <p
+            style={{
+              color: "black",
+              textAlign: "center",
+              fontSize: "2.2rem",
+              backgroundColor: "beige",
+            }}
+          >
+            Some Data Mutations are deactivated for deployment purposes
+          </p>
+        </div>
         <App />
       </ErrorBoundary>
     </StyleSheetManager>

@@ -5,6 +5,7 @@ import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 
 import { useUpdateUser } from "./useUpdateUser";
+import ToolTip from "../../ui/ToolTip";
 
 function UpdatePasswordForm() {
   const { register, handleSubmit, formState, getValues, reset } = useForm();
@@ -17,7 +18,7 @@ function UpdatePasswordForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form type="regular" onSubmit={handleSubmit(onSubmit)}>
       <FormRow
         label="New Password (min 8 characters)"
         error={errors?.password?.message}
@@ -57,7 +58,12 @@ function UpdatePasswordForm() {
         <Button onClick={reset} type="reset" variation="secondary">
           Cancel
         </Button>
-        <Button disabled={isUpdating}>Update password</Button>
+        {/* <Button disabled={isUpdating}>Update password</Button> */}
+        <ToolTip
+          disabled={true}
+          buttonText="Update Account"
+          tooltipText="This feature is currently Disabled!"
+        />
       </FormRow>
     </Form>
   );

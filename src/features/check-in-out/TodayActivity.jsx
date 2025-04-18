@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import styled from "styled-components";
 
 import Heading from "../../ui/Heading";
@@ -37,6 +38,59 @@ const NoActivity = styled.p`
   margin-top: 0.8rem;
 `;
 
+const activities2 = [
+  {
+    id: 211,
+    status: "unconfirmed",
+    numNights: 3,
+    Guests: {
+      fullName: "Vaibhav Tyagi",
+      nationality: "Indian",
+      countryFlag: "https://flagcdn.com/in.svg",
+    },
+  },
+  {
+    id: 184,
+    status: "checked-in",
+    numNights: 5,
+    Guests: {
+      fullName: "Rohan Sharma",
+      nationality: "Indian",
+      countryFlag: "https://flagcdn.com/in.svg",
+    },
+  },
+  {
+    id: 191,
+    status: "checked-in",
+    numNights: 6,
+    Guests: {
+      fullName: "Rashid Khan",
+      nationality: "Afghan",
+      countryFlag: "https://flagcdn.com/af.svg",
+    },
+  },
+  {
+    id: 190,
+    status: "unconfirmed",
+    numNights: 3,
+    Guests: {
+      fullName: "Meera Kumari",
+      nationality: "Nepali",
+      countryFlag: "https://flagcdn.com/np.svg",
+    },
+  },
+  {
+    id: 192,
+    status: "unconfirmed",
+    numNights: 4,
+    Guests: {
+      fullName: "Nima Dorji",
+      nationality: "Bhutanese",
+      countryFlag: "https://flagcdn.com/bt.svg",
+    },
+  },
+];
+
 function TodayActivity() {
   const { isLoading, activities } = useTodayActivity();
   return (
@@ -46,9 +100,9 @@ function TodayActivity() {
       </Row>
 
       {!isLoading ? (
-        activities?.length > 0 ? (
+        activities2?.length > 0 ? (
           <TodayList>
-            {activities.map((activity) => (
+            {activities2.map((activity) => (
               <TodayItem activity={activity} key={activity.id} />
             ))}
           </TodayList>

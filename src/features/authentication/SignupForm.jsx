@@ -4,6 +4,7 @@ import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
 import { useSignUp } from "./useSignUp";
+import ToolTip from "../../ui/ToolTip";
 
 // Email regex: /\S+@\S+\.\S+/
 
@@ -17,7 +18,7 @@ function SignupForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form type="regular" onSubmit={handleSubmit(onSubmit)}>
       <FormRow label="Full name" error={errors?.fullName?.message}>
         <Input
           type="text"
@@ -82,7 +83,12 @@ function SignupForm() {
         >
           Cancel
         </Button>
-        <Button disabled={isLoading}>Create new user</Button>
+        {/* <Button disabled={isLoading}>Create new user</Button> */}
+        <ToolTip
+          disabled={true}
+          buttonText="Update Account"
+          tooltipText="This feature is currently Disabled!"
+        />
       </FormRow>
     </Form>
   );

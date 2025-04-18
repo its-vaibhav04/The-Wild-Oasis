@@ -5,6 +5,7 @@ import Tag from "../../ui/Tag";
 import CheckoutButton from "./CheckoutButton";
 import { Flag } from "../../ui/Flag";
 import Button from "../../ui/Button";
+import ToolTip from "../../ui/ToolTip";
 
 const StyledTodayItem = styled.li`
   display: grid;
@@ -31,7 +32,7 @@ function TodayItem({ activity }) {
     <StyledTodayItem>
       {status === "unconfirmed" && <Tag type="green">Arriving</Tag>}
       {status === "checked-in" && <Tag type="blue">Departing</Tag>}
-      <Flag src={Guests.countryFlag} alt={`Flag of ${Guests.country}`} />
+      <Flag src={Guests.countryFlag} alt={`Flag of ${Guests.nationality}`} />
       <Guest>{Guests.fullName}</Guest>
       <div>{numNights} nights</div>
 
@@ -40,7 +41,7 @@ function TodayItem({ activity }) {
           size="small"
           variation="primary"
           as={Link}
-          to={`/checkin/${id}`}
+          // to={`/checkin/${id}`}
         >
           Check in
         </Button>

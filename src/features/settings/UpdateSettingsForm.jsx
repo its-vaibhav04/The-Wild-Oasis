@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import Form from "../../ui/Form";
 import FormRow from "../../ui/FormRow";
 import Input from "../../ui/Input";
@@ -22,13 +23,24 @@ function UpdateSettingsForm() {
   function handleUpdate(e, name) {
     const { value } = e.target;
     if (!value) return;
+    if (name === "breakfastPrice" && value < 0) {
+      toast.error("Breakfast price cannot be negative");
+      e.target.value = breakfastPrice;
+      return;
+    }
+    if (name === "minBookingLength" && value < 1) {
+      toast.error("Booking length should atleast be 1");
+      e.target.value = minBookingLength;
+      return;
+    }
+
     updateSetting({
       [name]: value,
     });
   }
 
   return (
-    <Form>
+    <Form type="regular">
       <FormRow label="Minimum nights/booking">
         <Input
           type="number"
@@ -44,8 +56,8 @@ function UpdateSettingsForm() {
           type="number"
           id="max-nights"
           defaultValue={maxBookingLength}
-          disabled={isUpdating}
-          onBlur={(e) => handleUpdate(e, "maxBookingLength")}
+          disabled={true}
+          // onBlur={(e) => handleUpdate(e, "maxBookingLength")}
         />
       </FormRow>
 
@@ -54,8 +66,8 @@ function UpdateSettingsForm() {
           type="number"
           id="max-guests"
           defaultValue={maxGuestsPerBooking}
-          disabled={isUpdating}
-          onBlur={(e) => handleUpdate(e, "maxGuestsPerBooking")}
+          disabled={true}
+          // onBlur={(e) => handleUpdate(e, "maxGuestsPerBooking")}
         />
       </FormRow>
 

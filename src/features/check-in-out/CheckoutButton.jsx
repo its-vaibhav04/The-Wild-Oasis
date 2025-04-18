@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import Button from "../../ui/Button";
 import { useCheckout } from "./useCheckout";
 
@@ -7,7 +8,7 @@ function CheckoutButton({ bookingId }) {
     <Button
       variation="primary"
       size="small"
-      onClick={() => checkout(bookingId)}
+      // onClick={() => checkout(bookingId)}
       disabled={isCheckingOut}
     >
       Check out

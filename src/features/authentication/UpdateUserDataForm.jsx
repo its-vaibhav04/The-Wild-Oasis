@@ -8,6 +8,7 @@ import Input from "../../ui/Input";
 
 import { useUser } from "./useUser";
 import { useUpdateUser } from "./useUpdateUser";
+import ToolTip from "../../ui/ToolTip";
 
 function UpdateUserDataForm() {
   const {
@@ -42,7 +43,7 @@ function UpdateUserDataForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form type="regular" onSubmit={handleSubmit}>
       <FormRow label="Email address">
         <Input value={email} disabled />
       </FormRow>
@@ -73,7 +74,12 @@ function UpdateUserDataForm() {
         >
           Cancel
         </Button>
-        <Button disabled={isUpdating}>Update account</Button>
+        {/* <Button disabled={isUpdating}>Update account</Button> */}
+        <ToolTip
+          disabled={true}
+          buttonText="Update Account"
+          tooltipText="This feature is currently Disabled!"
+        />
       </FormRow>
     </Form>
   );
